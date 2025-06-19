@@ -91,6 +91,12 @@
     </div>
   </footer>
 
+  <script>
+    var data = {{ data|tojson|safe }};
+    var tasks = {{ tasks|tojson|safe }};
+    var avg_times = {{ avg_times|tojson|safe }};
+  </script>
+
   <script src="{{ url_for('static', filename='script.js') }}?v=4"></script>
 </body>
 </html>
