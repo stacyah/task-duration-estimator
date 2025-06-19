@@ -1,6 +1,5 @@
 # Byte-compiled / optimized / DLL files
 *.csv
-!data/task_data.csv
 __pycache__/
 *.py[cod]
 *$py.class
@@ -27,6 +26,13 @@ share/python-wheels/
 .installed.cfg
 *.egg
 MANIFEST
+
+# Terraform generated files
+.terraform/
+*.tfstate
+*.tfstate.backup
+.terraform.lock.hcl
+inventory.ini
 
 # PyInstaller
 #  Usually these files are written by a python script from a template

@@ -1,0 +1,53 @@
+# my ansible playbook to deploy the task estimator app
+- name: configure server and run my docker app
+  hosts: all
+  become: yes # run commands as root
+
+  tasks:
+    - name: Update apt package cache and install prerequisites
+      apt:
+        name: ['apt-transport-https', 'ca-certificates', 'curl', 'gnupg', 'git', 'python3-pip']
+        state: present
+        update_cache: yes
+
+    - name: Install Docker
+      block:
+        - name: Add Docker's official GPG key
+          apt_key:
+            url: https://download.docker.com/linux/ubuntu/gpg
+            state: present
+        - name: Set up the Docker repository
+          apt_repository:
+            repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ ansible_lsb.codename }} stable
+            state: present
+        - name: Install Docker Engine
+          apt:
+            name: ['docker-ce', 'docker-ce-cli', 'containerd.io']
+            state: present
+
+    - name: Install Docker SDK for Python
+      pip:
+        name: docker
+        state: present
+
+    - name: Clone the application repository
+      git:
+        repo: 'https://github.com/stacyah/task_duration_estimator.git'
+        dest: /opt/task-estimator
+
+    - name: Build the docker image for the application
+      community.docker.docker_image:
+        name: task-estimator
+        build:
+          path: /opt/task-estimator
+        source: build
+        state: present
+
+    - name: Run the application container
+      community.docker.docker_container:
+        name: task-estimator-app
+        image: task-estimator
+        state: started
+        restart_policy: always
+        published_ports:
+          - "5000:8080" # forward host port 5000 to container port 8080
