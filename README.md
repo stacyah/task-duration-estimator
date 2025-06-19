@@ -39,7 +39,7 @@ The deployment process is fully automated and located in the `/deployment` direc
 
 ## Testing
 
-The application's core logic and API endpoints are thoroughly tested using `pytest` to ensure the prediction engine, data logging, and accuracy calculations function correctly under various scenarios.
+The application's logic and API endpoints are tested using `pytest`, ensuring the prediction engine, data logging, and accuracy calculations function correctly under various scenarios.
 
 **Test Results:**
 [![Pytest Results](screenshots/test_results.png)](screenshots/test_results.png)
