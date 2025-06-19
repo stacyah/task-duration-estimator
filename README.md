@@ -37,6 +37,13 @@ The deployment process is fully automated and located in the `/deployment` direc
     * Builds a Docker image from the application's `Dockerfile`.
     * Launches the application by running the new Docker container.
 
+## Testing
+
+The application's core logic and API endpoints are thoroughly tested using `pytest` to ensure the prediction engine, data logging, and accuracy calculations function correctly under various scenarios.
+
+**Test Results:**
+[![Pytest Results](screenshots/test_results.png)](screenshots/test_results.png)
+
 ## Technology Stack
 
 * **Cloud:** Amazon Web Services (AWS)
