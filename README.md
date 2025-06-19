@@ -1,6 +1,6 @@
-# Time Helper – C964 Capstone
+# Time Helper
 
-Time Helper is a task duration predictor built for WGU’s C964 Capstone. It helps IT teams plan daily work more accurately by learning from past task logs. 
+Time Helper is a web application that uses historical data to predict task completion times, helping teams improve their planning accuracy.  
 
 Deployed Version: [https://stacyhilliard.me](https://stacyhilliard.me)
 
@@ -11,7 +11,15 @@ Deployed Version: [https://stacyhilliard.me](https://stacyhilliard.me)
 - Plotly charts to show prediction accuracy
 - Flask + JS stack, no database needed
 
-## Run using Docker
+## Tech Stack & Key Skills
+
+**Application:** Python, Flask, Pandas, Plotly.js
+**Containerization:** Docker
+**Cloud Provider:** Amazon Web Services (AWS)
+**Infrastructure as Code:** Terraform
+**Configuration Management & Automation:** Ansible
+
+## Running Locally
 
 ```bash
 docker build -t time-helper .
