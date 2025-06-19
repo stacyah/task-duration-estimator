@@ -1,6 +1,6 @@
 # Byte-compiled / optimized / DLL files
 *.csv
-!task_log.csv
+!data/task_data.csv
 __pycache__/
 *.py[cod]
 *$py.class
